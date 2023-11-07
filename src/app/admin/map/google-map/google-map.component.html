@@ -1,0 +1,75 @@
+<section class="location">
+    <div class="map">
+        <div class="col-md-12">
+          <!-- (mapReady)="mapReadyHandler($event)" -->
+          <div class="sub-map">
+            <agm-map [latitude]='latitude' 
+              [longitude]='longitude' 
+              [zoom]="15" 
+              style="height:800px;">
+
+              <agm-marker 
+              *ngFor="let m of marker; let i = index"
+              [latitude]="m.latitude"
+              [longitude]="m.longitude" 
+              [label]="m.pinPoint"
+              [agmFitBounds]="true"
+                >
+              </agm-marker>
+
+
+
+         </agm-map>
+          </div>
+        </div>
+      </div>
+    
+</section>
+<!-- <agm-marker 
+*ngFor="let m of marker; let i = index"
+[latitude]="m.latitude"
+[longitude]="m.longitude" 
+[label]="m.pinPoint"
+[agmFitBounds]="true"
+  >
+</agm-marker> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section class="location">
+    <div class="map">
+        <div class="col-md-12">
+         (mapReady)="mapReadyHandler($event)" 
+          <div class="sub-map">
+            <agm-map [latitude]='latitude' [longitude]='longitude' [zoom]="15" style="height:800px;">
+             <agm-marker 
+              *ngFor="let m of marker; let i = index"
+              [latitude]="m.latitude"
+              [longitude]="m.longitude" 
+              [label]="m.pinPoint"
+              [agmFitBounds]="true"
+               >
+             </agm-marker>
+         </agm-map>
+          </div>
+        </div>
+      </div>
+    
+</section> -->

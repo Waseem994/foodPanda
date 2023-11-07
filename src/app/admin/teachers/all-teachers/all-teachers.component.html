@@ -1,0 +1,150 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+         
+        <div class="mt-5">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+              <div class="materialTableHeader">
+                <div class="left">
+                  <ul class="header-buttons-left ms-0">
+                    <li class="tbl-title">
+                      <h2>All Devices</h2>
+                    </li>
+                    <!-- <li class="tbl-search-box">
+                      <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                      <input placeholder="Search" type="text" #filter class="browser-default search-field"
+                        aria-label="Search box">
+                    </li> -->
+                  </ul>
+                </div>
+                <div class="right">
+                  <ul class="tbl-export-btn">
+                    <li class="tbl-header-btn">
+                      <div class="m-l-10" matTooltip="ADD">
+                        <button mat-mini-fab color="primary" (click)="addNew()">
+                          <mat-icon class="col-white">add</mat-icon>
+                        </button>
+                      </div>
+                    </li>
+                    <li class="tbl-header-btn">
+                      <div class="m-l-10" matTooltip="REFRESH">
+                        <button mat-mini-fab color="primary" (click)="refresh()">
+                          <mat-icon class="col-white">refresh</mat-icon>
+                        </button>
+                      </div>
+                    </li>
+                    <li class="tbl-header-btn">
+                      <div class="m-l-10" [hidden]=!selection.hasValue() matTooltip="DELETE">
+                        <button mat-mini-fab color="warn" (click)="removeSelectedRows()">
+                          <mat-icon class="col-white">delete
+                          </mat-icon>
+                        </button>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="export-button m-l-10" matTooltip="XLSX">
+                        <img src="assets/images/icons/xlsx.png" alt="" (click)="exportExcel()" />
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+
+            <div class="body overflow-auto">
+              <div class="responsive_table">
+
+        <!-- ABDULLAH WORK -->
+        <div class="tableBody">
+          <div>
+               <input class="search_bar" type="text" [(ngModel)]="searchDeviceName" placeholder="Device Name"/> 
+               <input class="search_bar" type="text" [(ngModel)]="searchCity" placeholder="City"/> 
+               <input class="search_bar" type="text" [(ngModel)]="searchPinLocation" placeholder="Pin Location"    /> 
+               <input class="search_bar" type="text" [(ngModel)]="searchDeviceStatus" placeholder="Device Status"          /> 
+          </div>  
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Divice MacAddress</th>
+                  <th>City</th>
+                  <th>Pin Point</th>
+                  <th>GPS Location</th>
+                  <th>Device Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+             
+                <tr *ngFor="let item of filteredData() let i = index">
+                  <td>{{i + 1}}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.deviceMacAddress}}</td>
+                  <td style="font-size: 16px; font-weight: bold;">{{ item.city }}</td>
+                  <td>{{ item.pinPoint }}</td>
+                  <td>{{ item.gpslocation }}</td>
+                  <td>{{ item.status }}</td>
+                  <td style="font-size: 16px; font-weight: bold;">
+                  <button mat-icon-button (click)="$event.stopPropagation()" (click)="editCall(item)"
+                    class="tbl-action-btn">
+                    <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                  </button>
+                  <button mat-icon-button (click)="$event.stopPropagation()" (click)="viewCall(item)" class="tbl-action-btn">
+                    <mat-icon class="col-green">visibility</mat-icon>
+                  </button>
+                  <button mat-icon-button (click)="$event.stopPropagation()" (click)="deleteItem(item)"
+                    class="tbl-action-btn">
+                    <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons>
+                  </button>
+                  <button mat-icon-button (click)="$event.stopPropagation()" (click)="history(item)">
+                    <mat-icon class="col-green">trending_up</mat-icon>
+                  </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+         
+        </div>
+
+        <div class="pagination-container">
+          <div class="items-per-page-container">
+            <label for="itemsPerPageSelect">Items Per Page:</label>
+            <select id="itemsPerPageSelect" [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage()">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+        
+          <div class="pagination-controls">
+            <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+            <span>Page {{ currentPage }} of {{ totalPages }}</span>
+            <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+          </div>
+        </div>
+        <!-- ABDULLAH WORK -->
+
+       
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

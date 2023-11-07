@@ -1,0 +1,458 @@
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="editRowModal">
+      <div class="modalHeader clearfix">
+        <!-- <img [src]='teachers.img' alt="avatar"> -->
+        <div class="modal-about">
+          {{dialogTitle}}
+        </div>
+      </div>
+    </div>
+    <button mat-icon-button (click)="dialogRef.close()" class="modal-close-button" aria-label="Close dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="proForm" (ngSubmit)="submit">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Device Name</mat-label>
+            <input matInput formControlName="name" type="text">
+            <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>local_bar</mat-icon>
+            <mat-error *ngIf="proForm.get('name')?.hasError('required')">
+              Device Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Lacation Name</mat-label>
+            <input matInput formControlName="locationName" required>
+            <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>add_location</mat-icon>
+            <mat-error *ngIf="proForm.get('locationName')?.hasError('required')">
+              Name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Device Id</mat-label>
+            <input matInput formControlName="deviceId" type="text">
+            <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>memory</mat-icon>
+            <mat-error *ngIf="proForm.get('deviceId')?.hasError('required')">
+              Device Id is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Device Mac Address</mat-label>
+            <input matInput formControlName="deviceMacAddress" type="text">
+            <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>domain</mat-icon>
+            <mat-error *ngIf="proForm.get('deviceMacAddress')?.hasError('required')">
+              Divice Mac Address is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>City</mat-label>
+            <mat-select formControlName="city" required>
+              <mat-option [value]="'Karachi'">
+                Karachi
+              </mat-option>
+              <mat-option [value]="'Lahore'">
+                Lahore
+              </mat-option>
+              <mat-option [value]="'Islamabad'">
+                Islamabad
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('city')?.hasError('required')">
+             City is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Pin Piont</mat-label>
+            <input matInput formControlName="pinPoint" type="text">
+            <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>store_mall_directory</mat-icon>
+            <mat-error *ngIf="proForm.get('pinPoint')?.hasError('required')">
+              Pin Point is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Latitude</mat-label>
+            <input matInput formControlName="latitude" type="text">
+            <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>router</mat-icon>
+            <mat-error *ngIf="proForm.get('latitude')?.hasError('required')">
+              Latitude is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Longitude</mat-label>
+            <input matInput formControlName="longitude" type="text">
+            <mat-icon class="material-icons-two-tone color-icon p-3" matSuffix>router</mat-icon>
+            <mat-error *ngIf="proForm.get('longitude')?.hasError('required')">
+            Longitude is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status" required>
+              <mat-option [value]="'Active'">
+                Active
+              </mat-option>
+              <mat-option [value]="'Inactive'">
+                Inactive
+              </mat-option>
+              <mat-option [value]="'Faulty'">
+                Faulty
+              </mat-option>
+              <mat-option [value]="'Maintenance'">
+                Maintenance
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('status')?.hasError('required')">
+             Status is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <label style="font-size: 18px; font-weight: bold">Device Calibration</label>
+      <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Rain Mm</mat-label>
+            <mat-select formControlName="rainMm0" required>
+              <mat-option *ngFor="let value of range(1, 100)" [value]="value.toString()">
+                {{ value }}
+              </mat-option>
+              <mat-option [value]="'rainMm0'">
+                Rain Mm
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('rainMm0')?.hasError('required')">
+              Rain Mm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Weather Status</mat-label>
+            <mat-select formControlName="weatherStatus0" required>
+              <mat-option [value]="'Drizzles'">
+                Drizzles
+              </mat-option>
+              <mat-option [value]="'Slow Rain'">
+                Slow Rain
+              </mat-option>
+              <mat-option [value]="'High Rain'">
+                High Rain
+              </mat-option>
+              <mat-option [value]="'Thunder Storm'">
+                Thunder Storm
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('weatherStatus0')?.hasError('required')">
+              Weather Status Storm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Mintues</mat-label>
+            <mat-select formControlName="hourCount0" required>
+              <mat-option *ngFor="let value of range(1, 60)" [value]="value.toString()">
+                {{ value }}
+              </mat-option>
+              <mat-option [value]="'hourCount0'">
+                Mintues
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('hourCount0')?.hasError('required')">
+              Mintues is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Service Status</mat-label>
+            <mat-select formControlName="serviceStatus0" required>
+              <mat-option [value]="'Service Running'">
+                Service Running
+              </mat-option>
+              <mat-option [value]="'Area Shrink'">
+                Area Shrink
+              </mat-option>
+              <mat-option [value]="'Block Area Service'" style="color: red;">
+                Block Area Service
+              </mat-option>              
+            </mat-select>
+            <mat-error *ngIf="proForm.get('serviceStatus0')?.hasError('required')">
+              Service Status Storm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Rain Mm</mat-label>
+            <mat-select formControlName="rainMm1" required>
+              <mat-option *ngFor="let value of range(1, 100)" [value]="value.toString()">
+                {{ value }}
+              </mat-option>
+              <mat-option [value]="'rainMm1'">
+                Rain Mm
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('rainMm1')?.hasError('required')">
+              Rain Mm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Weather Status</mat-label>
+            <mat-select formControlName="weatherStatus1" required>
+              <mat-option [value]="'Drizzles'">
+                Drizzles
+              </mat-option>
+              <mat-option [value]="'Slow Rain'">
+                Slow Rain
+              </mat-option>
+              <mat-option [value]="'High Rain'">
+                High Rain
+              </mat-option>
+              <mat-option [value]="'Thunder Storm'">
+                Thunder Storm
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('weatherStatus1')?.hasError('required')">
+              Weather Status Storm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Mintues</mat-label>
+            <mat-select formControlName="hourCount1" required>
+              <mat-option *ngFor="let value of range(1, 60)" [value]="value.toString()">
+                {{ value }}
+              </mat-option>
+              <mat-option [value]="'hourCount1'">
+                Mintues
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('hourCount1')?.hasError('required')">
+              Mintues is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Service Status</mat-label>
+            <mat-select formControlName="serviceStatus1" required>
+              <mat-option [value]="'Service Running'">
+                Service Running
+              </mat-option>
+              <mat-option [value]="'Area Shrink'">
+                Area Shrink
+              </mat-option>
+              <mat-option [value]="'Block Area Service'" style="color: red;">
+                Block Area Service
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('serviceStatus1')?.hasError('required')">
+              Service Status Storm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Rain Mm</mat-label>
+            <mat-select formControlName="rainMm2" required>
+              <mat-option *ngFor="let value of range(1, 100)" [value]="value.toString()">
+                {{ value }}
+              </mat-option>
+              <mat-option [value]="'rainMm2'">
+                Rain Mm
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('rainMm2')?.hasError('required')">
+              Rain Mm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Weather Status</mat-label>
+            <mat-select formControlName="weatherStatus2" required>
+              <mat-option [value]="'Drizzles'">
+                Drizzles
+              </mat-option>
+              <mat-option [value]="'Slow Rain'">
+                Slow Rain
+              </mat-option>
+              <mat-option [value]="'High Rain'">
+                High Rain
+              </mat-option>
+              <mat-option [value]="'Thunder Storm'">
+                Thunder Storm
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('weatherStatus2')?.hasError('required')">
+              Weather Status Storm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Mintues</mat-label>
+            <mat-select formControlName="hourCount2" required>
+              <mat-option *ngFor="let value of range(1, 60)" [value]="value.toString()">
+                {{ value }}
+              </mat-option>
+              <mat-option [value]="'hourCount3'">
+                Mintues
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('hourCount2')?.hasError('required')">
+              Mintues is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Service Status</mat-label>
+            <mat-select formControlName="serviceStatus2" required>
+              <mat-option [value]="'Service Running'">
+                Service Running
+              </mat-option>
+              <mat-option [value]="'Area Shrink'">
+                Area Shrink
+              </mat-option>
+              <mat-option [value]="'Block Area Service'" style="color: red;">
+                Block Area Service
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('serviceStatus2')?.hasError('required')">
+              Service Status Storm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Rain Mm</mat-label>
+            <mat-select formControlName="rainMm3" required>
+              <mat-option *ngFor="let value of range(1, 100)" [value]="value.toString()">
+                {{ value }}
+              </mat-option>
+              <mat-option [value]="'rainMm3'">
+                Rain Mm
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('rainMm3')?.hasError('required')">
+              Rain Mm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Weather Status</mat-label>
+            <mat-select formControlName="weatherStatus3" required>
+              <mat-option [value]="'Drizzles'">
+                Drizzles
+              </mat-option>
+              <mat-option [value]="'Slow Rain'">
+                Slow Rain
+              </mat-option>
+              <mat-option [value]="'High Rain'">
+                High Rain
+              </mat-option>
+              <mat-option [value]="'Thunder Storm'">
+                Thunder Storm
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('weatherStatus3')?.hasError('required')">
+              Weather Status Storm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Mintues</mat-label>
+            <mat-select formControlName="hourCount3" required>
+              <mat-option *ngFor="let value of range(1, 60)" [value]="value.toString()">
+                {{ value }}
+              </mat-option>
+              <mat-option [value]="'hourCount3'">
+                Mintues
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('hourCount3')?.hasError('required')">
+              Mintues is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-2">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Service Status</mat-label>
+            <mat-select formControlName="serviceStatus3" required>
+              <mat-option [value]="'Service Running'">
+                Service Running
+              </mat-option>
+              <mat-option [value]="'Area Shrink'">
+                Area Shrink
+              </mat-option>
+              <mat-option [value]="'Block Area Service'" style="color: red;">
+                Block Area Service
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="proForm.get('serviceStatus3')?.hasError('required')">
+              Service Status Storm is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </form>
+    <div>
+    </div>
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+        <div class="example-button-row">
+          <button mat-raised-button color="primary" [disabled]="!proForm.valid" [mat-dialog-close]="1"
+            (click)="confirmAdd()">Save</button>
+          <button mat-raised-button color="warn" (click)="onNoClick()" tabindex="-1">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <script>
+  function range(start, end) {
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  }
+</script> -->

@@ -1,0 +1,135 @@
+<!-- <section class="content"> -->
+  <div class="content-block">
+    <button mat-button (click)="closeDialog()" class="modal-close-button" aria-label="Close dialog">X</button>
+    <div class="row">
+      <div>
+        <div class="card">
+          <div class="header">
+            <h2>DEVICE CURRENT STATUS</h2>
+          </div>
+          <div class="body">
+            <div class="row">
+              <h6 style="font-size: 20px;">Current Calibration</h6>
+              <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="card card-statistic-2">
+                  <div class="clearfix">
+                    <div class="card-right">
+                      <div>
+                        <h5 class="float-end">{{deviceCalibrationData[0]?.weatherStatus}}</h5>
+                      </div>
+                      <div class="col-black">
+                        <h1 class="font-weight-bold float-end mb-0" style="font-size: 24px;">
+                          {{deviceCalibrationData[0]?.rainMm}}mm</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="card card-statistic-2">
+                  <div class="clearfix">
+                    <div class="card-right">
+                      <div>
+                        <h5 class="float-end">{{deviceCalibrationData[1]?.weatherStatus}}</h5>
+                      </div>
+                      <div class="col-pink">
+                        <p class="font-weight-bold float-end mb-0" style="font-size: 24px;">
+                          {{deviceCalibrationData[1]?.rainMm}}mm</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="card card-statistic-2">
+                  <div class="clearfix">
+                    <div class="card-right">
+                      <div>
+                        <h5 class="float-end">{{deviceCalibrationData[2]?.weatherStatus}}</h5>
+                      </div>
+                      <div class="col-red">
+                        <p class="font-weight-bold float-end mb-0" style="font-size: 24px;">
+                          {{deviceCalibrationData[2]?.rainMm}}mm</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="card card-statistic-2">
+                  <div class="clearfix">
+                    <div class="card-right">
+                      <div>
+                        <h5 class="float-end">{{deviceCalibrationData[3]?.weatherStatus}}</h5>
+                      </div>
+                      <div class="col-red">
+                        <p class="font-weight-bold float-end mb-0" style="font-size: 24px;">
+                          {{deviceCalibrationData[3]?.rainMm}}mm</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <mat-card>
+                  <div class="row" style="text-align: center;">
+                    <label style="font-size: 24px; color: black;"><i class="material-icons"
+                        style="color: blue;">gps_fixed</i> {{deviveName || "--"}}</label>
+                  </div>
+                  <div class="row" style="text-align: center;" style="text-align: center;">
+                    <label style="font-size: 16px;"><i class="material-icons" style="color: blue;">sync</i>
+                      {{formattedDateTime || "00:00:00"}}</label>
+                  </div>
+                  <div class="row" style="text-align: center;">
+                    <label style="font-weight: bold; font-size: 24px;">{{finalPullsValue || "00.0"}}mm</label>
+                  </div>
+                  <mat-card-header>
+                  </mat-card-header>
+                  
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="card">
+                        <div class="header">
+                          <h4>Device Location</h4>
+                        </div>
+                        <div class="card-body">
+                          
+                          <agm-map 
+                            [latitude]="lat" 
+                            [longitude]="lng" 
+                            (mapReady)="mapReadyHandler($event)"
+                            [zoom]="15"
+                            >
+                            <agm-marker [latitude]="lat"
+                             [longitude]="lng"
+                             >
+  
+                             <agm-info-window [disableAutoPan]="false" [isOpen]="true">
+                              <div>
+                                <p>{{ deviveName }}</p>
+                                <p>{{ pinpoint }}</p>
+                                <p>{{ finalPullsValue }}</p>
+                              </div>
+                            </agm-info-window>
+                            </agm-marker>
+                           
+                          </agm-map>
+                          <div>Latitude: {{lat}}</div>
+                          <div>Longitude: {{lng}}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <mat-divider></mat-divider>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </section> -->

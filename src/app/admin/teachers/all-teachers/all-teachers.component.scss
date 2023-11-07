@@ -1,0 +1,26 @@
+input.search_bar {
+    margin: 0 20px 20px 20px;
+    text-align: center;
+    border: 1px solid yellowgreen;
+    height: 34px;
+    border-radius: 10px;
+    width: 227px;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .items-per-page-container {
+    margin-right: 10px;
+  }
+  
+  .pagination-text {
+    margin-right: 10px;
+  }
+  
+  .pagination-button {
+    margin-left: 10px;
+  }

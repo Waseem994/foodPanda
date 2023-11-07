@@ -1,0 +1,67 @@
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.items-per-page-container {
+  margin-right: 10px;
+}
+
+.pagination-text {
+  margin-right: 10px;
+}
+
+.pagination-button {
+  margin-left: 10px;
+}
+
+input.search_bar {
+  margin: 0 20px 20px 20px;
+  text-align: center;
+  border: 1px solid yellowgreen;
+  height: 34px;
+  border-radius: 10px;
+  width: 227px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 2;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 2;
+  }
+}
+
+.blink-animation {
+  font-size: 16px;
+  font-weight: bold;
+  color: cornflowerblue;
+  animation: blink 2s infinite;
+}
+
+// status color
+/* Add these classes to your component's CSS file */
+.weather-slow-rain {
+  font-size: 20px;
+  background-color: green;
+}
+
+.weather-high-rain {
+  background-color: yellow;
+}
+
+.weather-thunderstorm {
+  background-color: red;
+}
+
+.weather-no-rain {
+  font-size: 20px;
+  background-color: green;
+}
+
+

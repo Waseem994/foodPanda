@@ -1,0 +1,58 @@
+[
+    {
+        "id": "001",
+        "name": "RG-789645(Nazimabad#2)",
+        "gpsLocation": "24.88,67.04",
+        "city": "Karachi",
+        "district": "Central",
+        "deviceStatus": "Active"
+    },
+    {
+        "id": "002",
+        "name": "RG-789635(Data Darbar)",
+        "gpsLocation": "24.88,67.04",
+        "city": "Lahore",
+        "district": "East",
+        "deviceStatus": "Active"
+    },
+    {
+        "id": "003",
+        "name": "RG-789675(Korangi 5)",
+        "gpsLocation": "24.88,67.04",
+        "city": "Karachi",
+        "district": "Central",
+        "deviceStatus": "Active"
+    },
+    {
+        "id": "004",
+        "name": "RG-789675(Bahadurabad)",
+        "gpsLocation": "24.88,67.04",
+        "city": "Karachi",
+        "district": "West",
+        "deviceStatus": "Faulty"
+    },
+    {
+        "id": "005",
+        "name": "RG-789675(Clifton 9)",
+        "gpsLocation": "24.88,67.04",
+        "city": "Karachi",
+        "district": "Central",
+        "deviceStatus": "Active"
+    },
+    {
+        "id": "006",
+        "name": "RG-789675(DHA)",
+        "gpsLocation": "24.88,67.04",
+        "city": "Karachi",
+        "district": "DHA",
+        "deviceStatus": "Active"
+    },
+    {
+        "id": "007",
+        "name": "RG-789675(DHA 2)",
+        "gpsLocation": "24.88,67.04",
+        "city": "Karachi",
+        "district": "DHA",
+        "deviceStatus": "Inactive"
+    }
+]

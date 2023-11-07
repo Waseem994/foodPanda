@@ -1,0 +1,173 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <!-- Widgets -->
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/banner/Picture.png" alt="">
+            </div>
+            <div class="card-right">
+              <div>
+                <h5 class="float-end">Total Devices</h5>
+              </div>
+              <div class="col-green">
+                <h3 class="font-weight-bold float-end mb-0">{{counts.totalDevices}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/banner/Picture2.png" alt="">
+            </div>
+            <div class="card-right">
+              <div>
+                <h5 class="float-end">Active Devices</h5>
+              </div>
+              <div class="col-green">
+                <h3 class="font-weight-bold float-end mb-0">{{counts.activeDevices}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/banner/Picture3.png" alt="">
+            </div>
+            <div class="card-right">
+              <div>
+                <h5 class="float-end">Inactive Devices</h5>
+              </div>
+              <div class="col-green">
+                <h3 class="font-weight-bold float-end mb-0">{{counts.inactiveDevices}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>Devices Sammury</h2>
+            <!-- <button mat-icon-button [matMenuTriggerFor]="menu" class="header-dropdown">
+             
+            </button> -->
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>add_circle_outline</mat-icon>
+                <span>Add</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>delete_outline</mat-icon>
+                <span>Delete</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>refresh</mat-icon>
+                <span>Refresh</span>
+              </button>
+            </mat-menu>
+          </div>
+          <div>
+          </div>
+          <div class="tableBody">
+            <div>
+
+
+              <input class="search_bar" type="text" [(ngModel)]="searchDeviceName" placeholder="Device Name" />
+              <input class="search_bar" type="text" [(ngModel)]="searchCity" placeholder="City" />
+              <!--  <input class="search_bar" type="text" [(ngModel)]="searchMillimeters" placeholder="Search by ID"     />  -->
+              <!--  <input class="search_bar" type="text" [(ngModel)]="searchLocation" placeholder="Search by Name"      />  -->
+              <input class="search_bar" type="text" [(ngModel)]="searchPinLocation" placeholder="Pin Location" />
+              <input class="search_bar" type="text" [(ngModel)]="searchDeviceStatus" placeholder="Device Status" />
+              <!--  <input class="search_bar" type="text" [(ngModel)]="searchRecommendation" placeholder="Search by Name"/>  -->
+              <input class="search_bar" type="text" [(ngModel)]="searchWeatherStatus" placeholder="Weather Status" />
+
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+
+                  <tr>
+                    <th>#</th>
+                    <th>Device Name</th>
+                    <th>City</th>
+                    <th>Millimeters / Today</th>
+                    <th>Millimeters last hour</th>
+                    <th>Millimeters last 5 minute</th>
+                    <th>Millimeters Time</th>
+                    <th>Device Pin Location</th>
+                    <th>Device Status</th>
+                    <th>Recommendation</th>
+                    <th>Weather Status</th>
+                    <!-- <th>Actions</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of filteredData let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{ item.devnameicename }}</td>
+                    <td>{{ item.city || "--" }}</td>
+                    <td style="font-size: 16px; font-weight: bold;">{{ item.plusValue }} mm</td>
+                    <td style="font-size: 20px; font-weight: bold; color: cornflowerblue;">{{ item.ValuePrHour || "00"}}
+                      mm</td>
+                      <td style="font-size: 20px; font-weight: bold; color: cornflowerblue;">{{ item.valuePerMinute || "00"}} mm</td>
+                    <td>{{item.formattedDate}}</td>
+                    <td>{{ item.pinPoint }}</td>
+                    <td>{{ item.status }}</td>
+                    <td style="font-size: 16px; font-weight: bold;">{{ item.recommendation || "Service Running" }}</td>
+                   
+                    <td style="font-size: 17px; font-weight: bold;" [ngStyle]="{
+                      'background-color': item.weatherStatus === 'Slow Rain' ? 'green' :
+                                         item.weatherStatus === 'High Rain' ? 'darkred' :
+                                         item.weatherStatus === 'Thunderstorm' ? 'red' : '',
+                      'color': item.weatherStatus === 'No Rain' ? 'green' : 'black'
+                    }">
+                      {{ item.weatherStatus || '--' }}
+                    </td>
+                  
+                    <!-- <td [style.color]="getItemColor(item.weatherStatus)" style="font-size: 16px; font-weight: bold;">
+                      {{ item.weatherStatus || "No Rain" }} -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="pagination-container">
+              <div class="items-per-page-container">
+                <label for="itemsPerPageSelect">Items Per Page:</label>
+                <select id="itemsPerPageSelect" [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage()">
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+
+              <div class="pagination-controls">
+                <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+                <span>Page {{ currentPage }} of {{ totalPages }}</span>
+                <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

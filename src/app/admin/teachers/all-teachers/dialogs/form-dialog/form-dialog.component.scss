@@ -1,0 +1,29 @@
+.parent {
+    border: 1px solid black;
+    // margin: 1rem;
+    padding: 1rem 1rem;
+    text-align: center;
+    
+  }
+  .child {
+    display: inline-block;
+    border: 1px solid rgb(55, 0, 255);
+    padding: 1rem 1rem;
+    padding-right: 80px;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+  .parent2{
+    margin-top: 13px;
+    // margin-left: 50px;
+}
+.multi{
+    font-weight: bold;
+}
+.allchild{
+    margin-left: -77px;
+}
+.row{
+    margin-top: 17px;
+}
+  
