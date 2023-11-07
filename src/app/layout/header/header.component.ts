@@ -62,6 +62,8 @@ export class HeaderComponent
     { text: 'Spanish', flag: 'assets/images/flags/spain.svg', lang: 'es' },
     // { text: 'German', flag: 'assets/images/flags/germany.svg', lang: 'de' },
   ];
+
+  
   notifications: Notifications[] = [
     {
       message: 'Please check your mail',
